@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css"
+    />
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Example Json</h1>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        console.log("example");
+
+        $.getJSON( "http://api.funxn.tapestryd.com/api/server_info", function( data ) {
+            console.log("API GET /server_info:", data);
+        });
+        $.getJSON( "http://api.funxn.tapestryd.com/api/tasks", function( data ) {
+            console.log("API GET /tasks:", data);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<div class="animated fadeIn">
+ 
+    <button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> {{title}} 
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width:20%">Caregiver</th>
+                                <th style="width:20%">Child</th>
+                                <th style="width:20%">Title</th>
+                                <th style="width:10%">Points</th>
+                                <th style="width:20%">Start Due</th>
+                                <th style="width:10%">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                           <!--<tr *ngFor="let item of tasks | paginate: { id: 'paginate-bottom', itemsPerPage: 6, currentPage: p, totalItems: totalItems }" >-->
+                           <tr *ngFor="let item of items | paginate: { itemsPerPage: PAGE_SIZE, currentPage: currentPageNumber, totalItems: totalItems }" >
+                                <td>{{item.caregiver.first_name + ' ' + item.caregiver.last_name}}</td>
+                                <td>{{item.patient.first_name + ' ' + item.patient.last_name}}</td>
+                                <td>{{item.title}}</td>
+                                <td>{{item.points}}</td>
+                                <td>11/08/2016</td>
+                                <td>
+                                    <span class="tag tag-warning" *ngIf="item.status == 1">Assigned</span>
+                                    <span class="tag tag-success" *ngIf="item.status == 2">Started</span>
+                                    <span class="tag tag-default" *ngIf="item.status == 3">Finished</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <nav>
+
+                    </nav>
+                        <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+                    <!--<nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Prev</a>
+                            </li>
+                            <li class="page-item page-item-1" [ngClass]="CSS-Class-Name" >
+                                <a class="page-link" href="#" (click)="getTaskPage(1)">1</a>
+                            </li>
+                            <li class="page-item page-item-2"><a class="page-link" href="#" (click)="getTaskPage(2)">2</a>
+                            </li>
+                            <li class="page-itempage-item-3"><a class="page-link" href="#" (click)="getTaskPage(3)">3</a>
+                            </li>
+                            <li class="page-item page-item-4"><a class="page-link" href="#" (click)="getTaskPage(4)">4</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>-->
+                </div>
+            </div>
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Large modal</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>

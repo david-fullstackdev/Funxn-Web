@@ -1,0 +1,57 @@
+<div class="animated fadeIn">
+
+    <div class="card">
+        <div class="card-block">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="card-title m-b-0">Correlated Data</h4>
+                    <!--<div class="small text-muted">October 2016</div>-->
+                    <!--<datetime [timepicker]="false" [(ngModel)]="reportDate" (ngModelChange)="onChangeReportDate()" [datepicker]="datepickerOpts"></datetime>-->
+                </div>
+                <div class="col-sm-6">
+                    <!--<div class="btn-toolbar pull-right" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group" data-toggle="buttons" aria-label="First group">
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="options" id="option1">Day
+                            </label>
+                            <label class="btn btn-outline-secondary active">
+                                <input type="radio" name="options" id="option2" checked>Month
+                            </label>
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="options" id="option3">Year
+                            </label>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="Second group">
+                            <button type="button" class="btn btn-primary"><i class="icon-cloud-download"></i>
+                            </button>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+                <canvas baseChart class="chart" [datasets]="mainChartData" [labels]="mainChartLabels" [options]="mainChartOptions" [colors]="mainChartColours" [legend]="mainChartLegend" [chartType]="mainChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"
+                style="height:300px;"></canvas>
+            </div>
+        </div>
+        <div class="card-footer">
+            <ul>
+                <li *ngIf="toggleGraph['mood']">
+                    <div class="text-muted">Mood</div>
+                    <strong>{{averageMood}}</strong>
+                    <progress class="progress progress-xs progress-danger" value="{{averageMood}}" max="100">Scale 1 to 100</progress>
+                </li>
+                <li *ngIf="toggleGraph['complete']">
+                    <div class="text-muted">Tasks Completed</div>
+                    <strong>{{averageComplete}}</strong>
+                    <progress class="progress progress-xs progress-info" value="{{averageComplete}}" max="100">up 17.5%</progress>
+                </li>
+                <li *ngIf="toggleGraph['incomplete']">
+                    <div class="text-muted">Incomplete Tasks</div>
+                    <strong>{{averageIncomplete}}</strong>
+                    <progress class="progress progress-xs progress-warning" value="{{averageIncomplete}}" max="100">up 17.5%</progress>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
